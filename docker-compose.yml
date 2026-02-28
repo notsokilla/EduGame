@@ -1,0 +1,13 @@
+# Edugame/docker-compose.yml
+version: '3.8'
+
+services:
+  edugame-bot:
+    build: handlers
+    container_name: edugame-bot
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
